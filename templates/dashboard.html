@@ -885,10 +885,47 @@
         }
       }
 
-      @media (max-width: 1000px) {
-        .sidebar {
-          display: none;
-        }
+     @media(max-width:1000px){
+
+    .sidebar{
+        width:75px;
+        display:block;
+        padding:15px 8px;
+    }
+
+    .logo h2,
+.logo p,
+.section-title,
+.profile-box div:last-child{
+    font-size:0;
+}
+
+    .sidebar a span{
+        font-size:20px;
+        margin:auto;
+    }
+
+    .profile-box{
+        justify-content:center;
+    }
+
+    .cards,
+    .insight-cards,
+    .content{
+        grid-template-columns:1fr;
+    }
+
+    .month-box,
+    .hero{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:14px;
+    }
+
+    .main{
+        padding:15px;
+    }
+}
         .cards,
         .insight-cards,
         .content {
