@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet "href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        body{
+            min-height: 95vh;
+            padding: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: 
+            radial-gradient(circle at top left, #dbeafe, transparent 35%),
+            radial-gradient(circle at bottom right, #fce7f3, transparent 35%),
+            linear-gradient(135deg,#f8fafc,#eef2ff);
+        }
+        .profile-card{
+            width:540px;
+            background: white;
+            border-radius: 28px;
+             padding:34px;
+            box-shadow:0 25px 60px rgba(15,23,42,0.14);
+            border:1px solid #eef2ff;
+        }
+        .top{
+            text-align: center;
+            margin-bottom: 24px;
+        }
+        .icon{
+            width:78px;
+            height:78px;
+            border-radius:24px;
+            margin:0 auto 14px;
+            background:linear-gradient(135deg,#4f46e5,#a256e9);
+            color:white;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            font-size:34px;
+            box-shadow:0 15px 35px rgba(79,70,229,0.28);
+        }
+        .top h2{
+            font-size:30px;
+            color:#111827;
+            margin-bottom:6px;
+        }
+        .top p{
+            color:#64748b;
+            font-size:14px;
+            line-height:1.6;
+        }
+        .info-currency{
+            background:linear-gradient(135deg,#eef2ff,#faf5ff);
+            border:1px solid #ddd6fe;
+            border-radius:20px;
+            padding:15px;
+            display:flex;
+            gap:12px;
+            margin-bottom:22px;
+        }
+        .info-currency i{
+            color:#4f46e5;
+            font-size:24px;
+        }
+        .info-currency h4{
+            font-size: 14px;
+            color:#111827;
+            margin-bottom: 4px;
+        }
+        .info-currency p{
+            color:#64748b;
+            font-size:14px;
+            line-height:1.5;
+        }
+        label{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 16px;
+            font-weight: 800;
+            color:#374151;
+            margin-bottom: 10px;
+        }
+        select{
+            width: 100%;
+            padding: 16px;
+            border-radius: 18px;
+            outline: none;
+            border: 1px solid #d1d5db;
+            background: #f8fafc;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+        select:focus{
+            background:white;
+            border-color:#4f46e5;
+            box-shadow:0 0 0 4px rgba(79,70,229,0.12);
+        }
+        .snapshot{
+            margin-top: 24px;
+        }
+        .snapshot-title{
+            display: flex;
+            align-items: center;
+            gap:8px;
+            font-weight:800;
+            color:#374151;
+            margin-bottom:14px;
+        }
+        .rate-card{
+            background:#f8fafc;
+            border:1px solid #e5e7eb;
+            border-radius:20px;
+            padding:15px;
+            margin-bottom:12px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            transition:.3s;
+        }
+        .rate-card:hover{
+            background: white;
+            border-color: #c7d2fe;
+            transform: translateY(-3px);
+            box-shadow:0 12px 24px rgba(79,70,229,0.08);
+        }
+        .left{
+            display: flex;
+            align-items: center;
+            gap:12px;
+        }
+        .currency-icon{
+            width:45px;
+            height:45px;
+            border-radius:15px;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            color:white;
+            font-size:18px;
+        }
+        .usd{
+            background:#22c55e;
+        }
+
+        .sgd{
+            background:#0ea5e9;
+        }
+
+        .aed{
+            background:#f59e0b;
+        }
+        .rate-card h4{
+            font-size:16px;
+            color:#111827;
+        }
+        .rate-card p{
+        font-size:12px;
+        color:#64748b;
+        margin-top:3px;
+        }
+        .rate{
+        font-weight:800;
+        font-size:14px;
+        color:#111827;
+        }
+        button{
+            width: 100%;
+            margin-top: 20px;
+            padding: 16px;
+            border-radius: 19px;
+            border: none;
+            cursor: pointer;
+            background:linear-gradient(135deg,#4f46e5,#9333ea);
+            color:white;
+            font-size:15px;
+            font-weight:700;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            gap:8px;
+            transition:.3s;
+            box-shadow:0 14px 30px rgba(79,70,229,0.25);
+        }
+        button:hover{
+             transform:translateY(-3px);
+        }
+        .back{
+            margin-top:14px;
+            text-decoration:none;
+            padding:16px;
+            border-radius:18px;
+            background:#f8fafc;
+            border:1px solid #e5e7eb;
+            color:#111827;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            gap:8px;
+            font-weight:800;
+            transition:0.3s;
+        }
+        .back:hover{
+            background:#eef2ff;
+            transform:translateY(-2px);
+        }
+        .back:focus{
+            border-color:#0ea5e9;
+        }
+        @media(max-width:600px){
+    .profile-card{
+        width:100%;
+        padding:25px;
+    }
+
+    .rate-card{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:10px;
+    }
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-card">
+        <div class="top">
+            <div class="icon">
+                  <i class="bi bi-person-gear"></i>
+            </div>
+
+            <h2>Profile</h2>
+
+            <p>
+            Choose your preferred currency for dashboard,
+            expenses, income and budget tracking.</p>
+        </div>
+
+        <div class="info-currency">
+             <i class="bi bi-lightbulb-fill"></i>   
+             <div>
+                <h4>Why Currency Matters?</h4>
+                <p>
+                 selected currency will be shown across the dashboard,
+                reports and expense records for easier tracking.
+                </p>
+             </div>     
+        </div>
+
+        <form method="POST" onsubmit="showCurrencyAlert()">
+            {% csrf_token %}
+
+            <label>
+                 <i class="bi bi-currency-exchange"></i> 
+                 Select Currency
+            </label>
+
+            <select name="currency" id="currencySelect">
+                 <option value="₹" {% if profile.currency == '₹' %} selected{% endif %}> 
+                        ₹ Indian Rupeee
+                    </option>
+
+              <option value="SGD" {% if profile.currency == 'SGD' %} selected {% endif %}>
+                        SGD Singapore Dollar
+                    </option>
+            
+            <option value="$" {% if profile.currency == '$' %} selected{% endif %}> 
+                        $ US Dollar
+                    </option>
+
+            <option value="AED" {% if profile.currency == 'AED' %} selected{% endif %}> 
+                        AED UAE Dirham
+                    </option>
+
+            </select>
+                 <div class="snapshot">
+                    <div class="snapshot-title">
+                         <i class="bi bi-graph-up-arrow"></i>
+                         Currency SnapShot
+                    </div>
+
+                    <div class="rate-card">
+                        <div class="left">
+                            <div class="currency-icon usd">
+                                   <i class="bi bi-currency-dollar"></i>
+                            </div>
+                            <div>
+                                <h4>US Dollar</h4>
+                                <p>American Dollar</p>
+                            </div>
+                        </div>
+
+                        <div class="rate">
+                            $1 ≈ ₹95.20
+                        </div>
+                    </div>
+
+                 <div class="rate-card">
+                        <div class="left">
+                            <div class="currency-icon sgd">
+                                   <i class="bi bi-buildings"></i>
+                            </div>
+                            <div>
+                                <h4>Singapore Dollar</h4>
+                                <p>Singapore</p>
+                            </div>
+                        </div>
+
+                        <div class="rate">
+                            SGD1 ≈ ₹74.51
+                        </div>
+                    </div>
+
+            <div class="rate-card">
+                        <div class="left">
+                            <div class="currency-icon aed">
+                                   <i class="bi bi-bank2"></i>
+                            </div>
+                            <div>
+                                <h4>UAE Dirham</h4>
+                                <p>UAE Dirham</p>
+                            </div>
+                        </div>
+
+                        <div class="rate">
+                            AED1 ≈ ₹25.93
+                        </div>
+                    </div>                    
+
+                 </div>    
+                 
+                 <button type="submit">
+                     <i class="bi bi-check-circle-fill"></i>
+                     Save Changes
+                 </button>
+        </form>
+
+          <a href="{% url 'dashboard' %}" class="back">
+                <i class="bi bi-speedometer2"></i>
+                     Back to Dashboard
+        </a>
+    </div>
+
+<script>
+    function showCurrencyAlert(){
+        let currency = document.getElementById('currencySelect').value;
+        let name="";
+           if(currency == "₹"){
+        name = "Indian Rupee";
+    }
+    else if(currency == "$"){
+        name = "US Dollar";
+    }
+    else if(currency == "SGD"){
+        name = "Singapore Dollar";
+    }
+    else{
+        name = "UAE Dirham";
+    }
+    alert(" ✅ " + name + "select!\n\nCurrency Updated Successfully.\nDashboard Will Now Use" + " "+ currency + ".");
+    }
+</script>
+</body>
+</html>
