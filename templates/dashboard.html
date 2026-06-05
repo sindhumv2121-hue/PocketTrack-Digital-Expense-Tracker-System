@@ -886,23 +886,33 @@
       }
 
      @media(max-width:1000px){
-
+  .layout{
+    flex-direction:column;
+  }     
     .sidebar{
-        width:75px;
-        display:block;
-        padding:15px 8px;
+        width:100%;
+        min-height:auto;
+        position:relative;
+        padding:20px;
     }
 
-    .logo h2,
-.logo p,
-.section-title,
-.profile-box div:last-child{
-    font-size:0;
-}
+   .logo h2{
+     font-size:22px;
+   }
+      
+.logo p{
+        font-size:12px;
+    }
 
+    .section-title{
+        font-size:11px;
+    }
+
+    .sidebar a{
+        font-size:15px;
+    }
     .sidebar a span{
         font-size:20px;
-        margin:auto;
     }
 
     .profile-box{
@@ -921,23 +931,16 @@
         align-items:flex-start;
         gap:14px;
     }
-
-    .main{
-        padding:15px;
+    .top-tools{
+        flex-direction:column;
+        width:100%;
+        align-items:stretch;
     }
-}
-        .cards,
-        .insight-cards,
-        .content {
-          grid-template-columns: 1fr;
-        }
-        .month-box,
-        .hero {
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 14px;
-        }
 
+    .search-box{
+        min-width:100%;
+    }
+        
         .main {
           padding: 20px;
         }
@@ -979,10 +982,10 @@
 
         <div class="nav-section">
           <p class="section-title">MAIN</p>
-          <a class="active">
-            <span><i class="ri-dashboard-fill"></i></span>
-            Dashboard
-          </a>
+         <a href="{% url 'dashboard' %}" class="active">
+    <span><i class="ri-dashboard-fill"></i></span>
+    Dashboard
+</a>
         </div>
 
         <div class="nav-section">
